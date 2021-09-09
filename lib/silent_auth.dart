@@ -32,6 +32,8 @@ class SilentAuth {
   /// This URI must belong to the application's domain. Usually, this just
   /// points to a dummy HTML file.
   final String silentRedirectUri;
+  /// authorizePath (not valid on keycloak request user fill on init class)
+  final String authorizePath; 
 
   /// The scope.
   final String scope;
@@ -76,7 +78,7 @@ class SilentAuth {
       this.silentRedirectUri,
       this.scope,
       this.responseType = 'id_token token',
-      String authorizePath = '/authorize',
+      this.authorizePath,
       String endSessionPath = '/endsession',
       this.timeout = oneMinute,
       void onRenew(SilentAuth auth),
